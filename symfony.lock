@@ -325,6 +325,15 @@
             "./src/Controller/.gitignore"
         ]
     },
+    "symfony/google-mailer": {
+        "version": "5.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.4",
+            "ref": "f8fd4ddb9b477510f8f4bce2b9c054ab428c0120"
+        }
+    },
     "symfony/http-client": {
         "version": "v5.3.10"
     },
@@ -573,6 +582,9 @@
     },
     "symfony/yaml": {
         "version": "v5.3.6"
+    },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.5.0"
     },
     "theseer/tokenizer": {
         "version": "1.2.1"
