@@ -37,6 +37,7 @@ class RegistrationController extends AbstractController
             
             $user->setNbreAvertissement(0);
             $user->setBlackListed(false);
+            $user->setRoles(["ROLE_USER"]);
             $user->setPassword(
             $userPasswordHasherInterface->hashPassword(
                     $user,

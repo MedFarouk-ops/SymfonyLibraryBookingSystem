@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/auteur")
+ * @Route("/admin/auteur")
  */
 class AuteurController extends AbstractController
 {
