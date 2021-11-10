@@ -1,11 +1,35 @@
-{% extends 'base.html.twig' %}
+
+{% extends 'admin-base.html.twig' %}
 
 {% block title %}New Editeur{% endblock %}
 
 {% block body %}
-    <h1>Create new Editeur</h1>
+
+        <!-- Start wrapper-->
+    <div id="wrapper">
+    
+        {% include 'admin/sidebar.html.twig' %}
+        {% include 'admin/header.html.twig' %}
+    
+    <div class="clearfix"></div>	
+    <div class="content-wrapper">
+    <div class="container-fluid">
+    <div class="row mt-3">
+      <div class="col-lg-6">
+         <div class="card">
+           <div class="card-body">
+           <div class="card-title">Edit Editeur</div>
+           <hr>
 
     {{ include('editeur/_form.html.twig') }}
 
-    <a href="{{ path('editeur_index') }}">back to list</a>
+    <a href="{{ path('editeur_index') }}" class="btn btn-secondary px-4">back to list</a>
+
+   </div>
+    </div>
+        </div>
+            </div>
+    </div>
+    </div>
+    </div>
 {% endblock %}
