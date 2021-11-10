@@ -1,41 +1,53 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin-base.html.twig' %}
 
 {% block title %}Editeur index{% endblock %}
 
 {% block body %}
-    <h1>Editeur index</h1>
+    <!-- Start wrapper-->
+    <div id="wrapper">
+    
+        {% include 'admin/sidebar.html.twig' %}
+        {% include 'admin/header.html.twig' %}
+    
+        <div class="clearfix"></div>	
+            <div class="content-wrapper">
+                <div class="container-fluid">
+    <h1> Table des editeurs :</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>NomEditeur</th>
-                <th>Pays</th>
-                <th>Address</th>
-                <th>Telephone</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for editeur in editeurs %}
-            <tr>
-                <td>{{ editeur.id }}</td>
-                <td>{{ editeur.nomEditeur }}</td>
-                <td>{{ editeur.pays }}</td>
-                <td>{{ editeur.address }}</td>
-                <td>{{ editeur.telephone }}</td>
-                <td>
-                    <a href="{{ path('editeur_show', {'id': editeur.id}) }}">show</a>
-                    <a href="{{ path('editeur_edit', {'id': editeur.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="table-responsive">
+              <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>NomEditeur</th>
+                    <th>Pays</th>
+                    <th>Address</th>
+                    <th>Telephone</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for editeur in editeurs %}
+                <tr>
+                    <td>{{ editeur.id }}</td>
+                    <td>{{ editeur.nomEditeur }}</td>
+                    <td>{{ editeur.pays }}</td>
+                    <td>{{ editeur.address }}</td>
+                    <td>{{ editeur.telephone }}</td>
+                    <td>
+                        <a href="{{ path('editeur_show', {'id': editeur.id}) }}" class="btn btn-light" >show</a>
+                        <a href="{{ path('editeur_edit', {'id': editeur.id}) }}" class="btn btn-dark" >edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('editeur_new') }}">Create new</a>
+    <a href="{{ path('editeur_new') }}" class="btn btn-light" >Create new</a>
+    </div></div></div>
 {% endblock %}

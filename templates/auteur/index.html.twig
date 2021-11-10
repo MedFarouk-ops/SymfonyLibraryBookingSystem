@@ -1,39 +1,53 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin-base.html.twig' %}
 
 {% block title %}Auteur index{% endblock %}
 
 {% block body %}
-    <h1>Auteur index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Prenom</th>
-                <th>Nom</th>
-                <th>Biographie</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for auteur in auteurs %}
-            <tr>
-                <td>{{ auteur.id }}</td>
-                <td>{{ auteur.prenom }}</td>
-                <td>{{ auteur.nom }}</td>
-                <td>{{ auteur.biographie }}</td>
-                <td>
-                    <a href="{{ path('auteur_show', {'id': auteur.id}) }}">show</a>
-                    <a href="{{ path('auteur_edit', {'id': auteur.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <!-- Start wrapper-->
+    <div id="wrapper">
+    
+    {% include 'admin/sidebar.html.twig' %}
+    {% include 'admin/header.html.twig' %}
 
-    <a href="{{ path('auteur_new') }}">Create new</a>
+    <div class="clearfix"></div>	
+        <div class="content-wrapper">
+            <div class="container-fluid">
+            <h1>Table des auteurs :</h1>
+
+            <div class="table-responsive">
+                    <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Prenom</th>
+                        <th>Nom</th>
+                        <th>Biographie</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for auteur in auteurs %}
+                    <tr>
+                        <td>{{ auteur.id }}</td>
+                        <td>{{ auteur.prenom }}</td>
+                        <td>{{ auteur.nom }}</td>
+                        <td>{{ auteur.biographie }}</td>
+                        <td>
+                            <a href="{{ path('auteur_show', {'id': auteur.id}) }}" class="btn btn-light" >show</a>
+                            <a href="{{ path('auteur_edit', {'id': auteur.id}) }}" class="btn btn-dark" >edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            <a href="{{ path('auteur_new') }}">Create new</a>
+            </div>
+            </div>
+        </div>
 {% endblock %}
