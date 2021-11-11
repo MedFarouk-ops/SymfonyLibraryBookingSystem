@@ -1,11 +1,32 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin-base.html.twig' %}
 
 {% block title %}New Livre{% endblock %}
 
 {% block body %}
-    <h1>Create new Livre</h1>
+    <!-- Start wrapper-->
+    <div id="wrapper">
+    
+    {% include 'admin/sidebar.html.twig' %}
+    {% include 'admin/header.html.twig' %}
+
+    <div class="clearfix"></div>	
+    <div class="content-wrapper">
+    <div class="container-fluid">
+    <div class="col-lg-16">
+    <div class="card">
+    <div class="card-body">
+    <div class="card-title">Creer un nouveau Livre : </div>
+    <!-- <h3>Create new Livre</h3> -->
 
     {{ include('livre/_form.html.twig') }}
-
-    <a href="{{ path('livre_index') }}">back to list</a>
+    <div class="col-lg-5" style="margin-left:325px;">
+    <br>
+    <a href="{{ path('livre_index') }}" class="btn btn-block btn-dark">Retour</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 {% endblock %}

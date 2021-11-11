@@ -13,7 +13,10 @@
     <div class="clearfix"></div>	
         <div class="content-wrapper">
             <div class="container-fluid">
-            <h1>Table des auteurs :</h1>
+                <div class="col-lg-16">
+                    <div class="card">
+                       <div class="card-body">
+                        <div class="card-title">Tables de auteurs :</div>
 
             <div class="table-responsive">
                     <table class="table table-bordered">
@@ -46,8 +49,9 @@
                 </tbody>
             </table>
             </div>
-            <a href="{{ path('auteur_new') }}">Create new</a>
+            <a href="{{ path('auteur_new') }}" class="btn btn-light btn-block" >Create new</a>
             </div>
             </div>
         </div>
+        </div></div></div>
 {% endblock %}

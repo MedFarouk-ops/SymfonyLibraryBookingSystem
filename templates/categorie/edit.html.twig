@@ -1,13 +1,29 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin-base.html.twig' %}
 
 {% block title %}Edit Categorie{% endblock %}
 
 {% block body %}
-    <h1>Edit Categorie</h1>
+    <!-- Start wrapper-->
+    <div id="wrapper">
+        
+        {% include 'admin/sidebar.html.twig' %}
+        {% include 'admin/header.html.twig' %}
 
-    {{ include('categorie/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('categorie_index') }}">back to list</a>
-
+    <div class="clearfix"></div>	
+    <div class="content-wrapper">
+    <div class="container-fluid">
+    <div class="col-lg-10">
+        <div class="card">
+           <div class="card-body">
+            <div class="card-title">Modifier categorie</div>
+    {{ include('categorie/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+    <br>
+    <div class="col-lg-5" style="margin-left:325px;">
     {{ include('categorie/_delete_form.html.twig') }}
+    <br>
+    <a href="{{ path('categorie_index') }}" class="btn btn-dark btn-block">Retour</a>
+    
+    </div>
+    </div></div></div>
+    </div></div></div>
 {% endblock %}

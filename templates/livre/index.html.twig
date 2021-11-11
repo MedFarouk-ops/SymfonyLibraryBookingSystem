@@ -12,9 +12,12 @@
         <div class="clearfix"></div>	
             <div class="content-wrapper">
                 <div class="container-fluid">
-    <h1>Table de livres :</h1>
-
-    <table class="table">
+                    <div class="col-lg-16">
+                        <div class="card">
+                           <div class="card-body">
+                            <div class="card-title">Tables de livres :</div>
+    <div class="table-responsive">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -31,15 +34,15 @@
         {% for livre in livres %}
             <tr>
                 <td>{{ livre.id }}</td>
-                <td>{{ livre.titre }}</td>
+                <td>{{ livre.titre[:30] }} ...</td>
                 <td>{{ livre.nbPages }}</td>
                 <td>{{ livre.dateEdition ? livre.dateEdition|date('Y-m-d') : '' }}</td>
                 <td>{{ livre.nbExemplaire }}</td>
                 <td>{{ livre.prix }}</td>
                 <td>{{ livre.isbn }}</td>
                 <td>
-                    <a href="{{ path('livre_show', {'id': livre.id}) }}">show</a>
-                    <a href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
+                    <a href="{{ path('livre_show', {'id': livre.id}) }}" class="btn btn-light">show</a>
+                    <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-dark">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -50,6 +53,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('livre_new') }}">Create new</a>
+    <a href="{{ path('livre_new') }}" class="btn btn-light btn-block"> Create new</a>
     </div></div></div>
+    </div></div></div></div>
 {% endblock %}

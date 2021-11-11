@@ -12,7 +12,11 @@
     <div class="clearfix"></div>	
     <div class="content-wrapper">
     <div class="container-fluid">
-    <h1>Editeur</h1>
+    <div class="col-lg-16">
+    <div class="card">
+    <div class="card-body">
+    <div class="card-title">information sur l'editeur : </div>
+            
 
     <table class="table">
         <tbody>
@@ -39,10 +43,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('editeur_index') }}" class="btn btn-warning" >back to list</a>
+    <a href="{{ path('editeur_index') }}" class="btn btn-info" >Retour</a>
 
-    <a href="{{ path('editeur_edit', {'id': editeur.id}) }}" class="btn btn-success">edit</a>
+    <a href="{{ path('editeur_edit', {'id': editeur.id}) }}" class="btn btn-warning">Modifier</a>
 
     {{ include('editeur/_delete_form.html.twig') }}
+    </div></div></div>
     </div></div></div>
 {% endblock %}

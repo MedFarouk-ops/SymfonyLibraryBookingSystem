@@ -43,9 +43,8 @@
 		 		<img src="{{asset('admin-assets/images/logo-icon.png')}}" alt="logo icon">
 		 	</div>
 		  <div class="card-title text-uppercase text-center py-3">Sign Up</div>
-    <form>
-    {{ form_start(registrationForm) }}
-    <div class="form-group">
+      {{ form_start(registrationForm) }}
+      <div class="form-group">
         {{ form_row(registrationForm.email) }}
         </div>
         <div class="form-group">
@@ -65,7 +64,6 @@
 
         <button type="submit" class="btn btn-light btn-block waves-effect waves-light">Register</button>
     {{ form_end(registrationForm) }}
-    </form>
     </div>
 		  </div>
           </div>

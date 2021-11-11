@@ -1,9 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin-base.html.twig' %}
 
 {% block title %}Livre{% endblock %}
 
 {% block body %}
-    <h1>Livre</h1>
+  <!-- Start wrapper-->
+  <div id="wrapper">
+    
+    {% include 'admin/sidebar.html.twig' %}
+    {% include 'admin/header.html.twig' %}
+
+<div class="clearfix"></div>	
+<div class="content-wrapper">
+<div class="container-fluid">
+<div class="col-lg-16">
+<div class="card">
+<div class="card-body">
+<div class="card-title"> Information sur livre : </div>
 
     <table class="table">
         <tbody>
@@ -38,9 +50,15 @@
         </tbody>
     </table>
 
-    <a href="{{ path('livre_index') }}">back to list</a>
+    <a href="{{ path('livre_index') }}" class="btn btn-info">Retour</a>
 
-    <a href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
+    <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-warning">Modifier</a>
 
     {{ include('livre/_delete_form.html.twig') }}
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 {% endblock %}

@@ -11,16 +11,36 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\TextType ;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
-            ->add('nom')
-            ->add('prenom')
+            ->add('email' ,TextType::class , [
+                'attr' => [
+                    'placeholder' => 'Email',
+                    'class' => 'form-control form-control-rounded'
+                ]
+            ])
+            ->add('nom',TextType::class , [
+                'attr' => [
+                    'placeholder' => 'Nom',
+                    'class' => 'form-control form-control-rounded'
+                ]
+            ])
+            ->add('prenom' ,TextType::class , [
+                'attr' => [
+                    'placeholder' => 'Prenom',
+                    'class' => 'form-control form-control-rounded'
+                ]
+            ])
             ->add('agreeTerms', CheckboxType::class, [
+                'attr' => [
+                    'class' => 'icheck-material-white'
+                ],
+
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
@@ -32,7 +52,10 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => ['autocomplete' => 'new-password' ,
+                    'placeholder' => 'Password',
+                    'class' => 'form-control form-control-rounded'
+                ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
