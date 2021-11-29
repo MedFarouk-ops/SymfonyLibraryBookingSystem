@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Livre;
 use App\Repository\LivreRepository;
 use App\Repository\CategorieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,10 +14,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function index(): Response
+    public function index(LivreRepository $livreRepository): Response
     {
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
+            'livres' => $livreRepository->findLastest(),
         ]);
     }
     /**
@@ -29,6 +30,16 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
             'livres' => $livreRepository->findAll(),
             'categories' => $categorieRepository->findAll(),
+        ]);
+    }
+
+     /**
+     * @Route("/book/{id}", name="single_book", methods={"GET"})
+     */
+    public function show(Livre $livre): Response
+    {
+        return $this->render('home/show_livre.html.twig', [
+            'livre' => $livre,
         ]);
     }
 }
