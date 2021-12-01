@@ -31,7 +31,6 @@ class AuteurType extends AbstractType
                     'class' => 'form-control form-control-rounded'
                 ]
             ])
-            ->add('livres')
         ;
     }
 

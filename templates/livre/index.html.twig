@@ -27,6 +27,7 @@
                 <th>NbExemplaire</th>
                 <th>Prix</th>
                 <th>Isbn</th>
+                <th>Image</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -40,6 +41,9 @@
                 <td>{{ livre.nbExemplaire }}</td>
                 <td>{{ livre.prix }}</td>
                 <td>{{ livre.isbn }}</td>
+                <td> <img src="/images/livres/{{ livre.filename }}" style="width: 50px;height:40px; border-radius:10%;"></td>
+
+
                 <td>
                     <a href="{{ path('livre_show', {'id': livre.id}) }}" class="btn btn-light">show</a>
                     <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-dark">edit</a>

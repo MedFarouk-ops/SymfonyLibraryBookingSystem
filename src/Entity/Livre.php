@@ -6,9 +6,14 @@ use App\Repository\LivreRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * @ORM\Entity(repositoryClass=LivreRepository::class)
+ * @Vich\Uploadable
  */
 class Livre
 {
@@ -18,6 +23,21 @@ class Livre
      * @ORM\Column(type="integer")
      */
     private $id;
+
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
+     */
+    private $filename;
+
+
+    /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="livre_image", fileNameProperty="filename")
+     */
+    private $imageFile;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -63,6 +83,11 @@ class Livre
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="livres")
      */
     private $categorie;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
 
     public function __construct()
     {
@@ -193,7 +218,63 @@ class Livre
 
         return $this;
     }
+    
+    /**
+    * @param null|File|UploadedFile
+    */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+    * @param null|File $imageFile
+    * @return Livre
+    */
+    public function setImageFile(?File $imageFile = null): Livre
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updated_at = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    /**
+    * @param null|string
+    */
+
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+    /**
+    * @param null|string $filename
+    * @return Livre
+    */
+
+    public function setFilename(?string $filename): Livre
+    {
+        $this->filename = $filename;
+        return $this;
+    }
+
     public function __toString() {
         return $this->titre;
     }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+
+
 }

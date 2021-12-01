@@ -68,6 +68,7 @@ class LoginFormAuthenticationAuthenticator extends AbstractLoginFormAuthenticato
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
 
+        
         // redirecting user by role : 
             $user = $this->security->getUser();
             $roles = $user->getRoles();

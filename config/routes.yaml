@@ -4,4 +4,7 @@
 user-home:
    path: /home
    controller: App\Controller\HomeController::index
+home:
+   path: /
+   controller: App\Controller\HomeController::index
 

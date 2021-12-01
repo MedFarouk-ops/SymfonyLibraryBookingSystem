@@ -25,13 +25,13 @@
 			<div class="row">
 				<div class="col-md-5">
 					<div class="single-product-img">
-						<img src="{{asset('user-assets/img/logo2.png')}}" alt="">
+						<img src="/images/livres/{{ livre.filename }}" alt="">
 					</div>
 				</div>
 				<div class="col-md-7">
 					<div class="single-product-content">
 						<h3>{{ livre.titre }}</h3>
-						<p class="single-product-pricing"><span>Per Kg</span> $50</p>
+						<p class="single-product-pricing"><span></span>{{ livre.prix }} $</p>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sint dignissimos, rem commodi cum voluptatem quae reprehenderit repudiandae ea tempora incidunt ipsa, quisquam animi perferendis eos eum modi! Tempora, earum.</p>
 						<div class="single-product-form">
                         <p><strong>Categories: </strong>{{ livre.categorie.designation }}</p>
