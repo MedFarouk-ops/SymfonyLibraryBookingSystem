@@ -31,8 +31,8 @@
 				<div class="col-md-7">
 					<div class="single-product-content">
 						<h3>{{ livre.titre }}</h3>
-						<p class="single-product-pricing"><span></span>{{ livre.prix }} $</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sint dignissimos, rem commodi cum voluptatem quae reprehenderit repudiandae ea tempora incidunt ipsa, quisquam animi perferendis eos eum modi! Tempora, earum.</p>
+						<p class="single-product-pricing"><span> <strong> Description :</strong></span></p>
+						<p>{{ livre.description }}</p>
 						<div class="single-product-form">
                         <p><strong>Categories: </strong>{{ livre.categorie.designation }}</p>
                         <p><strong>Author: </strong>{{ livre.auteur[0].prenom }} {{ livre.auteur[0].nom }}</p>

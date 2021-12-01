@@ -89,6 +89,11 @@ class Livre
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="string", length=1000)
+     */
+    private $description;
+
     public function __construct()
     {
         $this->auteur = new ArrayCollection();
@@ -271,6 +276,18 @@ class Livre
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

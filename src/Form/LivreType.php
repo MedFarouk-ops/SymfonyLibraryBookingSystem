@@ -44,6 +44,12 @@ class LivreType extends AbstractType
                     'class' => 'form-control form-control-rounded'
                 ]
             ]) 
+            ->add('description' ,TextType::class , [
+                'attr' => [
+                    'placeholder' => 'Description',
+                    'class' => 'form-control form-control-rounded'
+                ]
+            ]) 
             ->add('isbn' ,TextType::class , [
                 'attr' => [
                     'placeholder' => 'isbn',
