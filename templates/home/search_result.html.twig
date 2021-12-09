@@ -1,0 +1,54 @@
+{% extends 'user-base.html.twig' %}
+
+{% block title %}Book Details | E-Library{% endblock %}
+
+{% block body %}
+{% include 'home/header.html.twig' %}
+{% include 'home/search_area.html.twig' %}
+
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <h1>Search Result :</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-section mt-150 mb-150">
+		<div class="container">
+
+
+			<div class="row">
+			{% for livre in resultat %}
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="{{ path('single_book', {'id': livre.id}) }}"><img src="/images/livres/{{ livre.filename }}" style="width: 300px;height:250px; border-radius:10%;"></a>
+						</div>
+						<h3>{{ livre.titre }}</h3>
+						<p class="product-price"><span>{{ livre.auteur[0].prenom }} {{ livre.auteur[0].nom }}</span> {{ livre.prix }} $ </p>
+						<a href="{{path('cart_add',{id: livre.id})}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<a href="{{ path('collection') }}" class="boxed-btn">Show All Books</a>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- logo carousel -->
+		{% include 'home/sponsors_logo.html.twig' %}
+        <!-- end logo carousel -->
+    
+    
+    
+      {% include 'home/footer.html.twig' %}
+      {% include 'home/copyrights.html.twig' %}
+    {% endblock %}
+    

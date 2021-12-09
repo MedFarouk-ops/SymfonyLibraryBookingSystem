@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Livre;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use App\Repository\LivreRepository;
 use App\Repository\CategorieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
@@ -42,4 +44,28 @@ class HomeController extends AbstractController
             'livre' => $livre,
         ]);
     }
+
+
+    /**
+     * @Route("/search", name="search_livre")
+     */
+    public function searchLivre(Request $request)
+    {
+
+        $titre = $request->query->get('titre');
+
+        $em  = $this->getDoctrine()->getManager();
+        $req = $em->createQuery('
+            SELECT l FROM App\Entity\Livre l
+            WHERE l.titre LIKE :titre
+            ORDER BY l.titre ASC'
+        )
+        ->setParameter('titre','%'.$titre.'%')
+        ->setMaxResults(10);
+        $resultat = $req->getResult();
+        return $this->render('home/search_result.html.twig', [
+            'resultat' => $resultat,
+        ]);
+    }
+    
 }
