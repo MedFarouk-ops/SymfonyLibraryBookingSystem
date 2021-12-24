@@ -94,9 +94,15 @@ class Livre
      */
     private $description;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Emprunt::class, mappedBy="livres")
+     */
+    private $emprunts;
+
     public function __construct()
     {
         $this->auteur = new ArrayCollection();
+        $this->emprunts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -288,6 +294,33 @@ class Livre
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Emprunt[]
+     */
+    public function getEmprunts(): Collection
+    {
+        return $this->emprunts;
+    }
+
+    public function addEmprunt(Emprunt $emprunt): self
+    {
+        if (!$this->emprunts->contains($emprunt)) {
+            $this->emprunts[] = $emprunt;
+            $emprunt->addLivre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEmprunt(Emprunt $emprunt): self
+    {
+        if ($this->emprunts->removeElement($emprunt)) {
+            $emprunt->removeLivre($this);
+        }
 
         return $this;
     }

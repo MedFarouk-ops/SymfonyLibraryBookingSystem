@@ -6,7 +6,6 @@
 {% include 'home/header.html.twig' %}
 {% include 'home/search_area.html.twig' %}
 
-
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
@@ -21,7 +20,6 @@
 		</div>
 	</div>
 	<!-- end breadcrumb section -->
-
 	<!-- cart -->
 	<div class="cart-section mt-150 mb-150">
 		<div class="container">
@@ -81,7 +79,7 @@
 						</table>
 						<div class="cart-buttons">
 							<a href="{{ path('cart_index') }}" class="boxed-btn">Update Cart</a>
-							<a href="checkout.html" class="boxed-btn black">Check Out</a>
+							<a href="{{ path('emprunter') }}" class="boxed-btn black">Emprunter</a>
 						</div>
 					</div>
 
@@ -91,14 +89,9 @@
 		</div>
 	</div>
 	<!-- end cart -->
-
-
-<!-- logo carousel -->
+	<!-- logo carousel -->
 		{% include 'home/sponsors_logo.html.twig' %}
 	<!-- end logo carousel -->
-
-
-
   {% include 'home/footer.html.twig' %}
   {% include 'home/copyrights.html.twig' %}
 {% endblock %}
