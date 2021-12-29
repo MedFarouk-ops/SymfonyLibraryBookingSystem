@@ -30,8 +30,9 @@ class CartController extends AbstractController
             ];
             $total += $livre->getPrix() * $quantite;
         }
+        $size = count($dataPanier);
 
-        return $this->render('cart/index.html.twig', compact("dataPanier", "total"));
+        return $this->render('cart/index.html.twig', compact("dataPanier", "total","size"));
     }
 
     /**

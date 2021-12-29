@@ -53,7 +53,7 @@ class LivreType extends AbstractType
             ->add('isbn' ,TextType::class , [
                 'attr' => [
                     'placeholder' => 'isbn',
-                    'value' => rand(100000000,9999999999),
+                    'value' => rand(10000000,999989999),
                     'class' => 'form-control form-control-rounded'
                 ]
             ])

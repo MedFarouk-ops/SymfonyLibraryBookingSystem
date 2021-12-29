@@ -10,6 +10,7 @@ use App\Entity\Livre;
 use App\Entity\Emprunt;
 use Symfony\Component\Security\Core\Security;
 use App\Repository\LivreRepository;
+use App\Repository\EmpruntRepository;
 
 
 class EmpruntController extends AbstractController
@@ -50,12 +51,12 @@ class EmpruntController extends AbstractController
     // fin constructeur //
 
     /**
-     * @Route("/user/emprunt", name="emprunt")
+     * @Route("/admin/emprunt", name="emprunt_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(EmpruntRepository $empruntRepository): Response
     {
         return $this->render('emprunt/index.html.twig', [
-            'controller_name' => 'EmpruntController',
+            'emprunts' => $empruntRepository->findAll(),
         ]);
     }
 
@@ -76,8 +77,7 @@ class EmpruntController extends AbstractController
         // enregistrer l'emprunte : 
         $entityManager->persist($newEmprunt);
         $entityManager->flush();
-        return $this->render('emprunt/index.html.twig', [
-            'controller_name' => 'EmpruntController']);
+        return $this->redirectToRoute('home');
     }
 
    

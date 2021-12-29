@@ -32,6 +32,15 @@ class LivreRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function findOrdred()
+    {
+        return $this->createQueryBuilder('l')
+            ->orderBy('l.titre', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     
 
     /*

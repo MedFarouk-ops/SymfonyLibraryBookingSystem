@@ -31,8 +31,8 @@
 								</li>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="{{ path('app_login') }}"><i class="fas fa-user"></i></a>
-										<a class="shopping-cart" href="{{ path('cart_index') }}"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="{{ path('app_login') }}"><i class="fas fa-user"></i> {% if app.user %} {{ app.user.nom }}  {% endif %}</a>
+										<a class="shopping-cart" href="{{ path('cart_index') }}"><i class="fas fa-shopping-cart"></i><spam style="color: red"> 2</spam></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>

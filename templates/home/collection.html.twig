@@ -47,7 +47,7 @@
 						</div>
 						<h3>{{ livre.titre }}</h3>
 						<p class="product-price"><span>{{ livre.auteur[0].prenom }} {{ livre.auteur[0].nom }}</span> {{ livre.prix }} $</p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						<a href="{{path('cart_add',{id: livre.id})}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
 				{% endfor %}

@@ -30,8 +30,8 @@ class HomeController extends AbstractController
     {
         return $this->render('home/collection.html.twig', [
             'controller_name' => 'HomeController',
-            'livres' => $livreRepository->findAll(),
-            'categories' => $categorieRepository->findAll(),
+            'livres' => $livreRepository->findOrdred(),
+            'categories' => $categorieRepository->findOrdred(),
         ]);
     }
 
