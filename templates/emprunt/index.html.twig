@@ -37,7 +37,7 @@
                     <td>{{ emprunt.DataEmprunt ? emprunt.DataEmprunt|date('Y-m-d') : '' }}</td>
                     
                     <td>
-                        <a href="" class="btn btn-light" >Confirmer</a>
+                        <a href="{{ path('mailer', {'id': emprunt.user[0].id}) }}" class="btn btn-light" >Confirmer</a>
                         <a href="" class="btn btn-dark" >Annuler</a>
                     </td>
                 </tr>
