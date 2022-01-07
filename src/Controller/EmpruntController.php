@@ -74,6 +74,7 @@ class EmpruntController extends AbstractController
         $newEmprunt = $this->make_emprunt_data($session,$livresRepository,$emprunt);  
         $newEmprunt->setDataEmprunt(new \DateTime());
         $newEmprunt->addUser($user);
+        $newEmprunt->setIsConfirmed(false);
         // enregistrer l'emprunte : 
         $entityManager->persist($newEmprunt);
         $entityManager->flush();

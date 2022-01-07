@@ -34,6 +34,11 @@ class Emprunt
      */
     private $livres;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isConfirmed;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -101,6 +106,18 @@ class Emprunt
     public function removeLivre(Livre $livre): self
     {
         $this->livres->removeElement($livre);
+
+        return $this;
+    }
+
+    public function getIsConfirmed(): ?bool
+    {
+        return $this->isConfirmed;
+    }
+
+    public function setIsConfirmed(bool $isConfirmed): self
+    {
+        $this->isConfirmed = $isConfirmed;
 
         return $this;
     }

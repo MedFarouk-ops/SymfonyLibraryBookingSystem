@@ -9,6 +9,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use App\Entity\User;
+use App\Entity\Emprunt;
 use App\Repository\UserRepository;
 
 class MailerController extends AbstractController
@@ -19,6 +20,9 @@ class MailerController extends AbstractController
     public function sendEmail(MailerInterface $mailer,User $user): Response
     {
         $address = $user->getEmail() ;
+        $emprunt = $user->getEmprunts()->first();
+        $this->confirmEmprunt($emprunt);
+
         $email = (new TemplatedEmail())
             ->from('E-Library <librarylibrary652@gmail.com>')
             ->to($address)
@@ -37,5 +41,14 @@ class MailerController extends AbstractController
         return $this->redirectToRoute('home');
 
         
+    }
+
+
+    public function confirmEmprunt(Emprunt $emprunt)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $emprunt->setIsConfirmed(true);
+        $entityManager->persist($emprunt);
+        $entityManager->flush();
     }
 }
