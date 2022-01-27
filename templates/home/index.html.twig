@@ -97,7 +97,7 @@
 							<a href="{{ path('single_book', {'id': livre.id}) }}"><img src="/images/livres/{{ livre.filename }}" style="width: 300px;height:250px; border-radius:10%;"></a>
 						</div>
 						<h3>{{ livre.titre }}</h3>
-						<p class="product-price"><span>{{ livre.auteur[0].prenom }} {{ livre.auteur[0].nom }}</span> {{ livre.prix }} $ </p>
+						<p class="product-price"><span>{{ livre.auteur[0].prenom }} {{ livre.auteur[0].nom }}</span> </p>
 						<a href="{{path('cart_add',{id: livre.id})}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>

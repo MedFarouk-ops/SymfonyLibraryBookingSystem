@@ -39,7 +39,7 @@
                     <td>
                         {% if (emprunt.isConfirmed == false) %}
                         <a href="{{ path('mailer', {'id': emprunt.user[0].id}) }}" class="btn btn-light" >Confirmer</a>
-                        <a href="" class="btn btn-dark" >Annuler</a>
+                       {{ include('emprunt/_delete_form.html.twig') }}
                         {% else %}
                         <button class="btn btn-success" >Confirmée</button>
                         {% endif %}

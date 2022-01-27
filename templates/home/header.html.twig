@@ -17,22 +17,17 @@
 								<li class="current-list-item"><a href="{{ path('home') }}">Home</a>
 									
 								</li>
-								<li><a href="about.html">About</a></li>
+								<li><a href="#">About</a></li>
 								
 								
-								<li><a href="contact.html">Contact</a></li>
+								<li><a href="#">Contact</a></li>
 								<li><a href="{{ path('collection') }}">Book Collection</a>
-									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
-									</ul>
+									
 								</li>
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="{{ path('app_login') }}"><i class="fas fa-user"></i> {% if app.user %} {{ app.user.nom }}  {% endif %}</a>
-										<a class="shopping-cart" href="{{ path('cart_index') }}"><i class="fas fa-shopping-cart"></i><spam style="color: red"> 2</spam></a>
+										<a class="shopping-cart" href="{{ path('cart_index') }}"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>

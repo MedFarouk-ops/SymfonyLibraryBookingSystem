@@ -38,7 +38,7 @@ class MailerController extends AbstractController
             ]);
 
         $mailer->send($email);
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('emprunt_index');
 
         
     }

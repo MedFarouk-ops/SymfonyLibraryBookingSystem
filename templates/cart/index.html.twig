@@ -34,7 +34,6 @@
 									<th class="product-name">Title</th>
 									<th class="product-name">ISBN</th>
 									<th class="product-name">Number of Pages</th>
-									<th class="product-price">Price</th>
 									<th class="product-price">Quantity</th>
 
 								</tr>
@@ -47,7 +46,6 @@
 									<td class="product-name">{{element.livre.titre}}</td>
 									<td class="product-name">{{element.livre.isbn}}</td>
 									<td class="product-name">{{element.livre.nbPages}}</td>
-									<td class="product-price">{{element.livre.prix}}$</td>
 									<td class="product-price">{{ element.quantite }}</td>
 								</tr>
 							{% else %}
@@ -63,20 +61,7 @@
 
 				<div class="col-lg-4">
 					<div class="total-section">
-						<table class="total-table">
-							<thead class="total-table-head">
-								<tr class="table-total-row">
-									<th>Total</th>
-									<th>Prix</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="total-data">
-									<td><strong>Total: </strong></td>
-									<td>${{total}}</td>
-								</tr>
-							</tbody>
-						</table>
+						
 						<div class="cart-buttons">
 							<a href="{{ path('cart_index') }}" class="boxed-btn">Update Cart</a>
 							<a href="{{ path('emprunter') }}" class="boxed-btn black">Emprunter</a>

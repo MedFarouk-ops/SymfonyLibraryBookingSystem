@@ -37,9 +37,7 @@
                         <p><strong>Categories: </strong>{{ livre.categorie.designation }}</p>
                         <p><strong>Author: </strong>{{ livre.auteur[0].prenom }} {{ livre.auteur[0].nom }}</p>
                         <p><strong>Editor: </strong>{{ livre.editeur.nomEditeur }}</p>
-							<form action="index.html">
-								<input type="number" placeholder="0">
-							</form>
+							
 							<a href="{{path('cart_add',{id: livre.id})}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 							
 						</div>
