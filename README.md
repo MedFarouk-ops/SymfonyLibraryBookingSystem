@@ -14,7 +14,8 @@ Welcome to our comprehensive E-Library Management Web Application developed with
   
 Feel free to explore our application and experience efficient book management in action!
 
-Screen shots
+**Screen shots**
+
 ![Landing page](Symfony1.png)
 ![Landing page](Symfony2.png)
 ![Landing page](symfony3.png)
