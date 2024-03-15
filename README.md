@@ -17,5 +17,5 @@ Feel free to explore our application and experience efficient book management in
 Screen shots
 ![Landing page](Symfony1.png)
 ![Landing page](Symfony2.png)
-![Landing page](Symfony3.png)
+![Landing page](symfony3.png)
 ![Landing page](Symfony4.png)
