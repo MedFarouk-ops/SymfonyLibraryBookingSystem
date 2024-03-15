@@ -14,4 +14,4 @@ Welcome to our comprehensive E-Library Management Web Application developed with
   
 Feel free to explore our application and experience efficient book management in action!
 
-![Admin Dashboard](symfony1.png)
+![Admin Dashboard](Symfony1.png)
