@@ -13,3 +13,5 @@ Welcome to our comprehensive E-Library Management Web Application developed with
 - HTML & CSS: Core technologies for building structured web pages and styling them.
   
 Feel free to explore our application and experience efficient book management in action!
+
+![Admin Dashboard](symfony1.png)
